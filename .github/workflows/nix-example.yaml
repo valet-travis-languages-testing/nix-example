@@ -1,0 +1,11 @@
+name: valet-travis-languages-testing/nix-example
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - run: curl -L https://nixos.org/releases/nix/nix-2.3.6/install | sh
+    - run: nix-build
