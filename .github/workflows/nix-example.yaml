@@ -7,6 +7,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - run: curl -L https://nixos.org/releases/nix/nix-2.3.6/install | sh
-    - run: . /home/runner/.nix-profile/etc/profile.d/nix.sh
+    - uses: cachix/install-nix-action@v13
+      with:
+        install_url: https://nixos.org/releases/nix/nix-2.3.6/install
     - run: nix-build
